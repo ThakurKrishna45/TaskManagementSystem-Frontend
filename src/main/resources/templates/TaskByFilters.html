@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tasks by Priority & Status</title>
+</head>
+
+<body style="font-family: Arial; margin: 20px;">
+
+<h2>Tasks by Priority & Status</h2>
+
+<a href="/" style="color: blue; text-decoration: underline; margin-bottom: 10px; display: block;">← Back to Home</a>
+
+<form th:action="@{/tasks/by-filter/find}" method="get"
+      style="margin-bottom:20px; padding:15px; border:1px solid #ccc; width: fit-content;">
+
+    <label>Priority:</label>
+    <select name="priority" required style="padding:5px; margin-right:10px;">
+        <option value="">--Select--</option>
+        <option value="HIGH" th:selected="${priority == 'HIGH'}">HIGH</option>
+        <option value="MEDIUM" th:selected="${priority == 'MEDIUM'}">MEDIUM</option>
+        <option value="LOW" th:selected="${priority == 'LOW'}">LOW</option>
+    </select>
+
+    <label>Status:</label>
+    <select name="status" required style="padding:5px; margin-right:10px;">
+        <option value="">--Select--</option>
+        <option value="TODO" th:selected="${status == 'TODO'}">TODO</option>
+        <option value="IN_PROGRESS" th:selected="${status == 'IN_PROGRESS'}">IN_PROGRESS</option>
+        <option value="DONE" th:selected="${status == 'DONE'}">DONE</option>
+        <option value="COMPLETED" th:selected="${status == 'COMPLETED'}">COMPLETED</option>
+        <option value="PENDING" th:selected="${status == 'PENDING'}">PENDING</option>
+    </select>
+
+    <button type="submit"
+            style="padding:6px 12px; background:black; color:white; border:none;">
+        Find Tasks
+    </button>
+
+</form>
+
+<div th:if="${error}"
+     style="color:red; margin-bottom:15px;">
+    <span th:text="${error}"></span>
+</div>
+
+<div th:if="${tasks != null}"
+     style="margin-bottom:10px;">
+    Total Tasks:
+    <b th:text="${#lists.size(tasks)}"></b>
+</div>
+
+<div th:if="${tasks != null and #lists.isEmpty(tasks)}"
+     style="color:gray;">
+    No tasks found.
+</div>
+
+
+<table th:if="${tasks != null and !#lists.isEmpty(tasks)}"
+       border="1" cellpadding="10" cellspacing="0"
+       style="border-collapse: collapse; width: 100%;">
+
+    <thead style="background:#f2f2f2;">
+    <tr>
+        <th>#</th>
+        <th>Task Name</th>
+        <th>Description</th>
+        <th>Due Date</th>
+        <th>Priority</th>
+        <th>Status</th>
+        <th>Project</th>
+        <th>User</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="t, idx : ${tasks}">
+        <td th:text="${idx.count}"></td>
+        <td th:text="${t.taskName}"></td>
+        <td th:text="${t.description}"></td>
+        <td th:text="${t.dueDate}"></td>
+        <td th:text="${t.priority}"></td>
+        <td th:text="${t.status}"></td>
+        <td th:text="${t.projectName}"></td>
+        <td th:text="${t.username}"></td>
+    </tr>
+    </tbody>
+
+</table>
+
+</body>
+</html>

@@ -1,3 +1,8 @@
 spring:
   application:
     name: taskmanagementsystem-frontend
+
+logging:
+  level:
+    com.capgemini.taskmanagementsystem_frontend: DEBUG
+
