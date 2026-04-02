@@ -1,5 +1,6 @@
 package com.capgemini.taskmanagementsystem_frontend.controller;
 
+import com.capgemini.taskmanagementsystem_frontend.service.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class NotificationViewController {
 
     @Autowired
-    private ApiService apiService;
+    private NotificationService apiService;
 
     @GetMapping
     public String notificationsForm() {
