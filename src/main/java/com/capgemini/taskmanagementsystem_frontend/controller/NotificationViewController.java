@@ -17,19 +17,10 @@ public class NotificationViewController {
 
     @GetMapping
     public String notificationsForm() {
-        return "pages/notifications";
+        return "NotificationPage";
     }
 
-    @GetMapping("/find-one")
-    public String findById(@RequestParam Integer id, Model model) {
-        try {
-            model.addAttribute("notification", apiService.getNotificationById(id));
-        } catch (Exception e) {
-            model.addAttribute("error", "Notification not found for ID: " + id);
-        }
-        model.addAttribute("searchId", id);
-        return "pages/notifications";
-    }
+
 
     @GetMapping("/find-recent")
     public String findRecent(@RequestParam Integer userId, @RequestParam Integer n, Model model) {
@@ -40,6 +31,6 @@ public class NotificationViewController {
         }
         model.addAttribute("userId", userId);
         model.addAttribute("n", n);
-        return "pages/notifications";
+        return "NotificationPage";
     }
 }
