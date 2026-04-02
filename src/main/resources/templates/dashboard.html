@@ -1,0 +1,146 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8"/>-->
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1"/>-->
+<!--  <title>Login — TaskManager</title>-->
+<!--</head>-->
+
+<!--<body style="font-family: Arial; background:#f5f5f5; margin:0; padding:20px;">-->
+
+
+<!--&lt;!&ndash; NAVIGATION BOXES &ndash;&gt;-->
+<!--<div style="max-width:800px; margin:20px auto;">-->
+
+<!--  <h3>Quick Access</h3>-->
+
+<!--  <div style="display:flex; flex-wrap:wrap; gap:10px;">-->
+
+<!--    <div onclick="window.location.href='/users'"-->
+<!--         style="flex:1; min-width:120px; padding:15px; background:white; cursor:pointer; text-align:center; border:1px solid #ccc;">-->
+<!--      Users-->
+<!--    </div>-->
+
+<!--    <div onclick="window.location.href='/projects/by-user'"-->
+<!--         style="flex:1; min-width:120px; padding:15px; background:white; cursor:pointer; text-align:center; border:1px solid #ccc;">-->
+<!--      Projects-->
+<!--    </div>-->
+
+<!--    <div onclick="window.location.href='/tasks/by-filter'"-->
+<!--         style="flex:1; min-width:120px; padding:15px; background:white; cursor:pointer; text-align:center; border:1px solid #ccc;">-->
+<!--      Tasks-->
+<!--    </div>-->
+
+<!--    <div onclick="window.location.href='/notifications'"-->
+<!--         style="flex:1; min-width:120px; padding:15px; background:white; cursor:pointer; text-align:center; border:1px solid #ccc;">-->
+<!--      Notifications-->
+<!--    </div>-->
+
+<!--    <div onclick="window.location.href='/comments'"-->
+<!--         style="flex:1; min-width:120px; padding:15px; background:white; cursor:pointer; text-align:center; border:1px solid #ccc;">-->
+<!--      Comments-->
+<!--    </div>-->
+
+<!--  </div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash; ENDPOINTS &ndash;&gt;-->
+<!--<div style="max-width:800px; margin:30px auto; background:white; padding:15px; border:1px solid #ccc;">-->
+
+<!--  <h3>API Endpoints</h3>-->
+
+<!--  <ul style="font-size:14px; line-height:1.8;">-->
+<!--    <li>GET /project/summary/{projectId}</li>-->
+<!--    <li>GET /task/getTaskByPriorityAndStatus</li>-->
+<!--    <li>GET /notification/getnrecentnotif/{userId}/{n}</li>-->
+<!--    <li>GET /comment/getallcommentsbytaskid/{taskId}</li>-->
+<!--  </ul>-->
+
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Dashboard — TaskManager</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; background:#f4f6f8; margin:0; padding:30px;">
+
+<!-- NAVIGATION BOXES -->
+<div style="max-width:850px; margin:auto;">
+
+  <h2 style="margin-bottom:10px;">Dashboard</h2>
+  <p style="color:#666; margin-bottom:20px;">Navigate to different sections of the system.</p>
+
+  <div style="display:flex; flex-wrap:wrap; gap:15px;">
+
+    <div onclick="window.location.href="
+         style="flex:1; min-width:140px; padding:20px; background:white; cursor:pointer;
+                text-align:center; border-radius:8px; border:1px solid #ddd;
+                box-shadow:0 2px 5px rgba(0,0,0,0.05); transition:0.2s;"
+         onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'"
+         onmouseout="this.style.transform='none'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.05)'">
+      Users
+    </div>
+
+    <div onclick="window.location.href="
+         style="flex:1; min-width:140px; padding:20px; background:white; cursor:pointer;
+                text-align:center; border-radius:8px; border:1px solid #ddd;
+                box-shadow:0 2px 5px rgba(0,0,0,0.05); transition:0.2s;"
+         onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'"
+         onmouseout="this.style.transform='none'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.05)'">
+      Projects
+    </div>
+
+    <div onclick="window.location.href="
+         style="flex:1; min-width:140px; padding:20px; background:white; cursor:pointer;
+                text-align:center; border-radius:8px; border:1px solid #ddd;
+                box-shadow:0 2px 5px rgba(0,0,0,0.05); transition:0.2s;"
+         onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'"
+         onmouseout="this.style.transform='none'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.05)'">
+      Tasks
+    </div>
+
+    <div onclick="window.location.href='/notifications'"
+         style="flex:1; min-width:140px; padding:20px; background:white; cursor:pointer;
+                text-align:center; border-radius:8px; border:1px solid #ddd;
+                box-shadow:0 2px 5px rgba(0,0,0,0.05); transition:0.2s;"
+         onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'"
+         onmouseout="this.style.transform='none'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.05)'">
+      Notifications
+    </div>
+
+    <div onclick="window.location.href='/comments'"
+         style="flex:1; min-width:140px; padding:20px; background:white; cursor:pointer;
+                text-align:center; border-radius:8px; border:1px solid #ddd;
+                box-shadow:0 2px 5px rgba(0,0,0,0.05); transition:0.2s;"
+         onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'"
+         onmouseout="this.style.transform='none'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.05)'">
+      Comments
+    </div>
+
+  </div>
+</div>
+
+<!-- ENDPOINTS -->
+<div style="max-width:850px; margin:40px auto; background:white; padding:20px;
+            border-radius:8px; border:1px solid #ddd;
+            box-shadow:0 2px 5px rgba(0,0,0,0.05);">
+
+  <h3 style="margin-bottom:15px;">API Endpoints</h3>
+
+  <ul style="font-size:14px; line-height:1.8; padding-left:20px; color:#333;">
+    <li><code>GET /project/summary/{projectId}</code></li>
+    <li><code>GET /task/getTaskByPriorityAndStatus</code></li>
+    <li><code>GET /notification/getnrecentnotif/{userId}/{n}</code></li>
+    <li><code>GET /comment/getallcommentsbytaskid/{taskId}</code></li>
+  </ul>
+
+</div>
+
+</body>
+</html>

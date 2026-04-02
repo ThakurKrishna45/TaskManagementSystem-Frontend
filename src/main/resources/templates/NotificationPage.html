@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Notifications</title>
+</head>
+
+<body style="font-family: Arial; margin: 30px; background-color: #f9f9f9;">
+
+<h2 style="margin-bottom: 5px;">Notifications</h2>
+<p style="color: gray;">Fetch notification by ID or get recent notifications for a user.</p>
+
+<hr style="margin: 20px 0;">
+
+<!-- Form A -->
+<div style="background: white; padding: 15px; border-radius: 6px; margin-bottom: 20px;">
+    <h3>Get Notification by ID</h3>
+
+    <form th:action="@{/notifications/find-one}" method="get">
+        <label>Notification ID:</label><br>
+        <input type="number" name="id" placeholder="Enter ID" required
+               style="padding:6px; margin-top:5px; width:200px;"><br><br>
+
+        <button type="submit"
+                style="padding:6px 12px; background:#007bff; color:white; border:none; border-radius:4px;">
+            Fetch
+        </button>
+    </form>
+</div>
+
+<!-- Single Result -->
+<div th:if="${notification}"
+     style="background: white; padding: 15px; border-radius: 6px; margin-bottom: 20px;">
+
+    <h4>Result</h4>
+    <p><b>ID:</b> <span th:text="${notification.notificationID}"></span></p>
+    <p><b>Message:</b> <span th:text="${notification.text}"></span></p>
+    <p><b>Created At:</b> <span th:text="${notification.createdAt}"></span></p>
+</div>
+
+<!-- Form B -->
+<div style="background: white; padding: 15px; border-radius: 6px; margin-bottom: 20px;">
+    <h3>Get Recent Notifications</h3>
+
+    <form th:action="@{/notifications/find-recent}" method="get">
+        <label>User ID:</label><br>
+        <input type="number" name="userId" placeholder="Enter User ID" required
+               style="padding:6px; margin-top:5px; width:200px;"><br><br>
+
+        <label>Count (N):</label><br>
+        <input type="number" name="n" placeholder="Enter count" required
+               style="padding:6px; margin-top:5px; width:200px;"><br><br>
+
+        <button type="submit"
+                style="padding:6px 12px; background:#28a745; color:white; border:none; border-radius:4px;">
+            Fetch Recent
+        </button>
+    </form>
+</div>
+
+<!-- Error -->
+<div th:if="${error}"
+     style="color:red; margin-bottom:20px; font-weight:bold;">
+    <span th:text="${error}"></span>
+</div>
+
+<!-- Table Result (ONLY shows when data exists) -->
+<div th:if="${notifications != null and !#lists.isEmpty(notifications)}"
+     style="background: white; padding: 15px; border-radius: 6px;">
+
+    <h4>Recent Notifications</h4>
+
+    <table style="width:100%; border-collapse: collapse; margin-top:10px;">
+        <tr style="background:#eee;">
+            <th style="padding:8px; border:1px solid #ccc;">#</th>
+            <th style="padding:8px; border:1px solid #ccc;">ID</th>
+            <th style="padding:8px; border:1px solid #ccc;">Message</th>
+            <th style="padding:8px; border:1px solid #ccc;">Created At</th>
+        </tr>
+
+        <tr th:each="n, i : ${notifications}">
+            <td style="padding:8px; border:1px solid #ccc;" th:text="${i.count}"></td>
+            <td style="padding:8px; border:1px solid #ccc;" th:text="${n.notificationID}"></td>
+            <td style="padding:8px; border:1px solid #ccc;" th:text="${n.text}"></td>
+            <td style="padding:8px; border:1px solid #ccc;" th:text="${n.createdAt}"></td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
