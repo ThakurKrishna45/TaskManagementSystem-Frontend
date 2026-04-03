@@ -36,7 +36,12 @@ public class TaskFrontendController {
             model.addAttribute("status", request.getStatus());
 
         } catch (Exception e) {
-            model.addAttribute("error", "Failed to fetch tasks");
+            // Show backend error message or generic message
+            String errorMessage = e.getMessage();
+            if (errorMessage == null || errorMessage.isEmpty()) {
+                errorMessage = "Failed to fetch tasks. Please try again.";
+            }
+            model.addAttribute("error", errorMessage);
         }
 
         return "TaskByFilters";
