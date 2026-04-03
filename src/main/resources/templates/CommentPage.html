@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Comments by Task</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        table tbody tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+
+<body style="font-family: 'Segoe UI', Tahoma; background-color: #f5f7fa; padding: 20px; animation: fadeIn 0.4s ease-in;">
+
+<div style="max-width: 1100px; margin: auto;">
+
+    <!-- HEADER -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+        <h1 style="color: #333; font-size: 30px;">Comments Dashboard</h1>
+
+        <a href="/dashboard" style="background-color: #667eea; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none;">
+            ← Back
+        </a>
+    </div>
+
+    <!-- FORM -->
+    <div style="background: white; padding: 20px; border-radius: 10px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+
+        <h3 style="margin-bottom: 15px;">Search Comments</h3>
+
+        <form th:action="@{/comments/find}" method="get" style="display: flex; gap: 15px;">
+
+            <input type="number" name="taskId" placeholder="Enter Task ID" required
+                   style="padding: 10px; border: 2px solid #ddd; border-radius: 6px; width: 200px;">
+
+            <button type="submit"
+                    style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; padding: 10px 20px; border-radius: 6px;">
+                🔍 Fetch Comments
+            </button>
+
+        </form>
+    </div>
+
+    <!-- ERROR -->
+    <div th:if="${error}" style="background-color: #fee; color: red; padding: 12px; margin-bottom: 15px;">
+        <span th:text="${error}"></span>
+    </div>
+
+    <!-- COUNT -->
+    <div th:if="${comments != null}" style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+        <strong th:text="${#lists.size(comments)}"></strong> comment(s) found
+    </div>
+
+    <!-- NO DATA -->
+    <div th:if="${comments != null and #lists.isEmpty(comments)}"
+         style="background: white; padding: 30px; text-align: center;">
+        😕 No comments found
+    </div>
+
+    <!-- TABLE -->
+    <div th:if="${comments != null and !#lists.isEmpty(comments)}"
+         style="background: white; border-radius: 10px; overflow: hidden;">
+
+        <table style="width: 100%; border-collapse: collapse;">
+
+            <thead style="background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+            <tr>
+                <th style="padding: 12px;">Sr.No</th>
+                <th style="padding: 12px;">Comment ID</th>
+                <th style="padding: 12px;">Text</th>
+                <th style="padding: 12px;">Created At</th>
+                <th style="padding: 12px;">User ID</th>
+                <th style="padding: 12px;">Task ID</th>
+                <th style="padding: 12px;">Username</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="c, idx : ${comments}" style="border-bottom: 1px solid #ddd;">
+
+                <td th:text="${idx.count}" style="padding: 10px;"></td>
+
+                <td th:text="${c.commentId}" style="padding: 10px;"></td>
+
+                <td th:text="${c.text}" style="padding: 10px; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"></td>
+
+                <td th:text="${c.createdAt}" style="padding: 10px;"></td>
+
+                <td th:text="${c.userId}" style="padding: 10px;"></td>
+
+                <td th:text="${c.taskId}" style="padding: 10px;"></td>
+
+                <td th:text="${c.username}" style="padding: 10px;"></td>
+
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>
