@@ -9,22 +9,42 @@
 
 <form th:action="@{/projects/summary/find}" method="get"
       style="background:#fff;padding:15px;border-radius: 5px;width: 300px;box-shadow: 0 0 5px #ccc;">
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+        <h1 style="color: #333; font-size: 32px; font-weight: 600; margin: 0;">Tasks Dashboard</h1>
+        <a href="/dashboard" style="background-color: #667eea; color: white; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: 500; transition: background-color 0.3s;"
+           onmouseover="this.style.backgroundColor='#764ba2';" onmouseout="this.style.backgroundColor='#667eea';">← Back to Home</a>
+    </div>
     <label style="font-weight: bold;">Project Id</label><br>
     <input type="number" name="projectId" min="1" th:value="${projectId}" required
            style="width:100%; padding:8px;margin-top: 5px;margin-bottom: 10px; border:1px solid #ccc; border-radius: 3px;">
 
     <button type="submit"
-            style="background-color:#007bff;color:white;padding:8px 12px; border: none;border-radius: 3px;cursor: pointer;">Get Summary</button>
+            style="background-color:#007bff;color:white;padding:8px 12px; border: none;border-radius: 3px;cursor: pointer;">
+        Get Summary
+    </button>
 </form>
-
 
 <p style="color:red; margin-top:10px;" th:if="${error}" th:text="${error}"></p>
 
+<!-- ✅ Project Info Section -->
+<div th:if="${projectName != null}"
+     style="margin-top:20px; padding:15px; background:#fff; border-radius:5px; box-shadow:0 0 5px #ccc; width: 400px;">
+
+    <p><b>Project Name:</b> <span th:text="${projectName}"></span></p>
+    <p><b>Start Date:</b> <span th:text="${startDate}"></span></p>
+    <p><b>End Date:</b> <span th:text="${endDate}"></span></p>
+
+</div>
+
+<!-- ✅ Table Section -->
 <div th:if="${summaries != null}" style="margin-top: 20px;">
+
     <p th:if="${#lists.isEmpty(summaries)}" style="color:gray;">No Data Found</p>
 
     <table border="1" th:unless="${#lists.isEmpty(summaries)}"
            style="border-collapse: collapse; width:100%;background: #fff;">
+
         <tr style="background-color: #007bff;color:white;">
             <th style="padding:8px">#</th>
             <th style="padding:8px">User</th>
@@ -33,17 +53,17 @@
             <th style="padding:8px">Status</th>
         </tr>
 
-        <tr th:each="s,i:${summaries}" style="text-align: center;">
+        <tr th:each="s,i : ${summaries}" style="text-align: center;">
             <td style="padding:8px" th:text="${i.count}"></td>
             <td style="padding:8px" th:text="${s.userName}"></td>
             <td style="padding:8px" th:text="${s.task}"></td>
             <td style="padding:8px" th:text="${s.name}"></td>
             <td style="padding:8px" th:text="${s.status}"></td>
-
         </tr>
 
     </table>
 
 </div>
+
 </body>
 </html>
