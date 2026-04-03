@@ -11,7 +11,6 @@
       style="background:#fff;padding:15px;border-radius: 5px;width: 300px;box-shadow: 0 0 5px #ccc;">
 
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
-        <h1 style="color: #333; font-size: 32px; font-weight: 600; margin: 0;">Tasks Dashboard</h1>
         <a href="/dashboard" style="background-color: #667eea; color: white; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: 500; transition: background-color 0.3s;"
            onmouseover="this.style.backgroundColor='#764ba2';" onmouseout="this.style.backgroundColor='#667eea';">← Back to Home</a>
     </div>
@@ -46,10 +45,10 @@
            style="border-collapse: collapse; width:100%;background: #fff;">
 
         <tr style="background-color: #007bff;color:white;">
-            <th style="padding:8px">#</th>
+            <th style="padding:8px">Sr. no.</th>
             <th style="padding:8px">User</th>
             <th style="padding:8px">Task</th>
-            <th style="padding:8px">Project</th>
+            <th style="padding:8px">Due Date</th>
             <th style="padding:8px">Status</th>
         </tr>
 
@@ -57,7 +56,7 @@
             <td style="padding:8px" th:text="${i.count}"></td>
             <td style="padding:8px" th:text="${s.userName}"></td>
             <td style="padding:8px" th:text="${s.task}"></td>
-            <td style="padding:8px" th:text="${s.name}"></td>
+            <td style="padding:8px" th:text="${s.dueDate}"></td>
             <td style="padding:8px" th:text="${s.status}"></td>
         </tr>
 
