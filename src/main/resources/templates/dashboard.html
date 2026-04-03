@@ -3,41 +3,53 @@
 <!--<head>-->
 <!--  <meta charset="UTF-8"/>-->
 <!--  <meta name="viewport" content="width=device-width, initial-scale=1"/>-->
-<!--  <title>Login — TaskManager</title>-->
+<!--  <title>Dashboard — TaskManager</title>-->
 <!--</head>-->
 
-<!--<body style="font-family: Arial; background:#f5f5f5; margin:0; padding:20px;">-->
-
+<!--<body style="font-family: Arial, sans-serif; background:#f4f6f8; margin:0; padding:30px;">-->
 
 <!--&lt;!&ndash; NAVIGATION BOXES &ndash;&gt;-->
-<!--<div style="max-width:800px; margin:20px auto;">-->
+<!--<div style="max-width:850px; margin:auto;">-->
 
-<!--  <h3>Quick Access</h3>-->
+<!--  <h2 style="margin-bottom:10px;">Dashboard</h2>-->
+<!--  <p style="color:#666; margin-bottom:20px;">Navigate to different sections of the system.</p>-->
 
-<!--  <div style="display:flex; flex-wrap:wrap; gap:10px;">-->
+<!--  <div style="display:flex; flex-wrap:wrap; gap:15px;">-->
 
-<!--    <div onclick="window.location.href='/users'"-->
-<!--         style="flex:1; min-width:120px; padding:15px; background:white; cursor:pointer; text-align:center; border:1px solid #ccc;">-->
-<!--      Users-->
-<!--    </div>-->
 
-<!--    <div onclick="window.location.href='/projects/by-user'"-->
-<!--         style="flex:1; min-width:120px; padding:15px; background:white; cursor:pointer; text-align:center; border:1px solid #ccc;">-->
+<!--    <div onclick="window.location.href='projects/summary'"-->
+<!--         style="flex:1; min-width:140px; padding:20px; background:white; cursor:pointer;-->
+<!--                text-align:center; border-radius:8px; border:1px solid #ddd;-->
+<!--                box-shadow:0 2px 5px rgba(0,0,0,0.05); transition:0.2s;"-->
+<!--         onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'"-->
+<!--         onmouseout="this.style.transform='none'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.05)'">-->
 <!--      Projects-->
 <!--    </div>-->
 
 <!--    <div onclick="window.location.href='/tasks/by-filter'"-->
-<!--         style="flex:1; min-width:120px; padding:15px; background:white; cursor:pointer; text-align:center; border:1px solid #ccc;">-->
+<!--         style="flex:1; min-width:140px; padding:20px; background:white; cursor:pointer;-->
+<!--                text-align:center; border-radius:8px; border:1px solid #ddd;-->
+<!--                box-shadow:0 2px 5px rgba(0,0,0,0.05); transition:0.2s;"-->
+<!--         onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'"-->
+<!--         onmouseout="this.style.transform='none'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.05)'">-->
 <!--      Tasks-->
 <!--    </div>-->
 
 <!--    <div onclick="window.location.href='/notifications'"-->
-<!--         style="flex:1; min-width:120px; padding:15px; background:white; cursor:pointer; text-align:center; border:1px solid #ccc;">-->
+<!--         style="flex:1; min-width:140px; padding:20px; background:white; cursor:pointer;-->
+<!--                text-align:center; border-radius:8px; border:1px solid #ddd;-->
+<!--                box-shadow:0 2px 5px rgba(0,0,0,0.05); transition:0.2s;"-->
+<!--         onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'"-->
+<!--         onmouseout="this.style.transform='none'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.05)'">-->
 <!--      Notifications-->
 <!--    </div>-->
 
 <!--    <div onclick="window.location.href='/comments'"-->
-<!--         style="flex:1; min-width:120px; padding:15px; background:white; cursor:pointer; text-align:center; border:1px solid #ccc;">-->
+<!--         style="flex:1; min-width:140px; padding:20px; background:white; cursor:pointer;-->
+<!--                text-align:center; border-radius:8px; border:1px solid #ddd;-->
+<!--                box-shadow:0 2px 5px rgba(0,0,0,0.05); transition:0.2s;"-->
+<!--         onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'"-->
+<!--         onmouseout="this.style.transform='none'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.05)'">-->
 <!--      Comments-->
 <!--    </div>-->
 
@@ -45,93 +57,229 @@
 <!--</div>-->
 
 <!--&lt;!&ndash; ENDPOINTS &ndash;&gt;-->
-<!--<div style="max-width:800px; margin:30px auto; background:white; padding:15px; border:1px solid #ccc;">-->
+<!--<div style="max-width:850px; margin:40px auto; background:white; padding:20px;-->
+<!--            border-radius:8px; border:1px solid #ddd;-->
+<!--            box-shadow:0 2px 5px rgba(0,0,0,0.05);">-->
 
-<!--  <h3>API Endpoints</h3>-->
+<!--  <h3 style="margin-bottom:15px;">API Endpoints</h3>-->
 
-<!--  <ul style="font-size:14px; line-height:1.8;">-->
-<!--    <li>GET /project/summary/{projectId}</li>-->
-<!--    <li>GET /task/getTaskByPriorityAndStatus</li>-->
-<!--    <li>GET /notification/getnrecentnotif/{userId}/{n}</li>-->
-<!--    <li>GET /comment/getallcommentsbytaskid/{taskId}</li>-->
+<!--  <ul style="font-size:14px; line-height:1.8; padding-left:20px; color:#333;">-->
+<!--    <li><code>GET /project/summary/{projectId}</code></li>-->
+<!--    <li><code>GET /task/getTaskByPriorityAndStatus</code></li>-->
+<!--    <li><code>GET /notification/getnrecentnotif/{userId}/{n}</code></li>-->
+<!--    <li><code>GET /comment/getallcommentsbytaskid/{taskId}</code></li>-->
 <!--  </ul>-->
 
 <!--</div>-->
 
 <!--</body>-->
 <!--</html>-->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Dashboard — TaskManager</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Dashboard — TaskManager</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff; /* Keeping the white background theme */
+            margin: 0;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #888;
+            margin-bottom: 40px;
+            font-size: 1rem;
+        }
+
+        /* Navigation Grid */
+        .nav-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .nav-card {
+            flex: 1;
+            min-width: 180px;
+            padding: 15px 15px;
+            background: #fff;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 16px;
+            border: 2.5px solid #2a2626;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: #444;
+            letter-spacing: 0.5px;
+        }
+
+        /* Subtle indicator on cards */
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #28a745;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+            border-color: #28a745;
+            color: #28a745;
+        }
+
+        .nav-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Icon Placeholders (using simple dots for a clean look) */
+        .icon-circle {
+            width: 40px;
+            height: 40px;
+            background: #f8f9fa;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        .nav-card:hover .icon-circle {
+            background: rgba(40, 167, 69, 0.1);
+        }
+
+        /* API Section */
+        .api-section {
+            margin-top: 50px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            border: 10px solid #f0f0f0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .api-section h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .api-section h3::after {
+            content: 'Live';
+            font-size: 0.6rem;
+            background: #28a745;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-left: 10px;
+            text-transform: uppercase;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            padding: 12px 15px;
+            background: #fafafa;
+            margin-bottom: 8px;
+            border-radius: 10px;
+            border: 1px solid #f1f1f1;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.85rem;
+            color: #555;
+            display: flex;
+            align-items: center;
+        }
+
+        li code {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        li::before {
+            content: '🔗';
+            margin-right: 12px;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+    </style>
 </head>
 
-<body style="font-family: Arial, sans-serif; background:#f4f6f8; margin:0; padding:30px;">
+<body>
 
-<!-- NAVIGATION BOXES -->
-<div style="max-width:850px; margin:auto;">
+<div class="container">
+    <h2>Dashboard</h2>
+    <p class="subtitle">Welcome back! Access your workspace tools below.</p>
 
-  <h2 style="margin-bottom:10px;">Dashboard</h2>
-  <p style="color:#666; margin-bottom:20px;">Navigate to different sections of the system.</p>
+    <div class="nav-grid">
 
-  <div style="display:flex; flex-wrap:wrap; gap:15px;">
+        <div class="nav-card" onclick="window.location.href='projects/summary'">
+            <div class="icon-circle">📂</div>
+            Projects
+        </div>
 
+        <div class="nav-card" onclick="window.location.href='/tasks/by-filter'">
+            <div class="icon-circle">✅</div>
+            Tasks
+        </div>
 
-    <div onclick="window.location.href='projects/summary'"
-         style="flex:1; min-width:140px; padding:20px; background:white; cursor:pointer;
-                text-align:center; border-radius:8px; border:1px solid #ddd;
-                box-shadow:0 2px 5px rgba(0,0,0,0.05); transition:0.2s;"
-         onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'"
-         onmouseout="this.style.transform='none'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.05)'">
-      Projects
+        <div class="nav-card" onclick="window.location.href='/notifications'">
+            <div class="icon-circle">🔔</div>
+            Notifications
+        </div>
+
+        <div class="nav-card" onclick="window.location.href='/comments'">
+            <div class="icon-circle">💬</div>
+            Comments
+        </div>
+
     </div>
 
-    <div onclick="window.location.href='/tasks/by-filter'"
-         style="flex:1; min-width:140px; padding:20px; background:white; cursor:pointer;
-                text-align:center; border-radius:8px; border:1px solid #ddd;
-                box-shadow:0 2px 5px rgba(0,0,0,0.05); transition:0.2s;"
-         onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'"
-         onmouseout="this.style.transform='none'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.05)'">
-      Tasks
+    <div class="api-section">
+        <h3>System API Endpoints</h3>
+        <ul>
+            <li><code>GET</code> /project/summary/{projectId}</li>
+            <li><code>GET</code> /task/getTaskByPriorityAndStatus</li>
+            <li><code>GET</code> /notification/getnrecentnotif/{userId}/{n}</li>
+            <li><code>GET</code> /comment/getallcommentsbytaskid/{taskId}</li>
+        </ul>
     </div>
-
-    <div onclick="window.location.href='/notifications'"
-         style="flex:1; min-width:140px; padding:20px; background:white; cursor:pointer;
-                text-align:center; border-radius:8px; border:1px solid #ddd;
-                box-shadow:0 2px 5px rgba(0,0,0,0.05); transition:0.2s;"
-         onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'"
-         onmouseout="this.style.transform='none'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.05)'">
-      Notifications
-    </div>
-
-    <div onclick="window.location.href='/comments'"
-         style="flex:1; min-width:140px; padding:20px; background:white; cursor:pointer;
-                text-align:center; border-radius:8px; border:1px solid #ddd;
-                box-shadow:0 2px 5px rgba(0,0,0,0.05); transition:0.2s;"
-         onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'"
-         onmouseout="this.style.transform='none'; this.style.boxShadow='0 2px 5px rgba(0,0,0,0.05)'">
-      Comments
-    </div>
-
-  </div>
-</div>
-
-<!-- ENDPOINTS -->
-<div style="max-width:850px; margin:40px auto; background:white; padding:20px;
-            border-radius:8px; border:1px solid #ddd;
-            box-shadow:0 2px 5px rgba(0,0,0,0.05);">
-
-  <h3 style="margin-bottom:15px;">API Endpoints</h3>
-
-  <ul style="font-size:14px; line-height:1.8; padding-left:20px; color:#333;">
-    <li><code>GET /project/summary/{projectId}</code></li>
-    <li><code>GET /task/getTaskByPriorityAndStatus</code></li>
-    <li><code>GET /notification/getnrecentnotif/{userId}/{n}</code></li>
-    <li><code>GET /comment/getallcommentsbytaskid/{taskId}</code></li>
-  </ul>
-
 </div>
 
 </body>
