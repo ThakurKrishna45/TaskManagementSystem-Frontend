@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
-@RequestMapping("/projects/summary")
+@RequestMapping("/projects")
 public class ProjectController {
     @Autowired
     private ProjectService projectService;
 
     @GetMapping("/summary")
     public String projectSummaryForm() {
-        return "pages/project-summary";
+        return "ProjectSummary";
     }
 
     @GetMapping("/summary/find")
@@ -28,6 +28,6 @@ public class ProjectController {
             model.addAttribute("error", "No summary found for project ID: " + projectId);
         }
         model.addAttribute("projectId", projectId);
-        return "pages/project-summary";
+        return "ProjectSummary";
     }
 }

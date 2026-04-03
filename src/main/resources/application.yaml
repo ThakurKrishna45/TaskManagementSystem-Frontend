@@ -3,4 +3,7 @@ spring:
     name: taskmanagementsystem-frontend
 
 server:
-  port: 8081
+  port: 8080
+
+api:
+  base-url: http://localhost:8085/
