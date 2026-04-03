@@ -26,7 +26,7 @@ public class AuthController {
         boolean success = loginService.callBackendLogin(loginRequest);
 
         if (success) {
-            return "redirect:/tasks/by-filter";
+            return "redirect:/dashboard";
         } else {
             model.addAttribute("error", "Invalid username or password");
             return "login";

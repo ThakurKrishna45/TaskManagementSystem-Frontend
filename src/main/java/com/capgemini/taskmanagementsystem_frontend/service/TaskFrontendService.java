@@ -35,7 +35,6 @@ public class TaskFrontendService {
                 .queryParam("status", dbStatus)
                 .build(false)
                 .toUriString();
-        System.out.println(url);
         try {
             TaskResponseDto[] responseArray = restTemplate.getForObject(url, TaskResponseDto[].class);
 
